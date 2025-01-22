@@ -3,6 +3,7 @@ package UI;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -11,17 +12,11 @@ import javax.swing.JMenuItem;
 
 public class MainWindow extends JFrame implements ActionListener{
     
-    //private JFrame mainWindow;
     JMenuBar menuBar;
-    JMenu fileMenu;
-    JMenu helpMenu;
-    JMenuItem exportItem;
-    JMenuItem exitItem;
+    ArrayList<JMenu> menus = new ArrayList<>();
+    ArrayList<JMenuItem> menuItems = new ArrayList<>();
 
     public MainWindow(){
-    
-        //mainWindow = new JFrame();
-
         //Default settings for main application window
         this.setTitle("Finance Manager");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,33 +33,42 @@ public class MainWindow extends JFrame implements ActionListener{
     }
 
     private void configureMenubar(){
-        
         //Configure Menu Bar 
         menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
 
-        //Configure Menus
-        fileMenu = new JMenu("File");
-        helpMenu = new JMenu("Help");
+        //Configure Menus and Menu Items
+        String[] menuNames = {"File", "Help"};
+        String[][] menuItemNames = {{"Export","Exit"}};
 
-        //Configure Menu Items
-        exportItem = new JMenuItem("Export");
-        exitItem = new JMenuItem("Exit");
+        //Iterate through all menu names
+        for (int i = 0; i < menuNames.length; i++) {
+            //Dynamically add the menuNames to the menubar and menus list
+            String menuName = menuNames[i];
+            JMenu menu = new JMenu(menuName);
+            menus.add(menu);
+            menuBar.add(menu);
+        
+            //Each menu has associated menuItems to be added
+            for (String menuItemName : menuItemNames[i]){
+                //Dynamically add the menu items to the menus and menuItems list
+                JMenuItem menuItem = new JMenuItem(menuItemName);
+                menuItems.add(menuItem);
+                menu.add(menuItem);
 
+                //Add action listeners to each menu item
+                menuItem.addActionListener(this);
+            }
+        }
 
-        fileMenu.add(exportItem);
-        fileMenu.add(exitItem);
-
-        menuBar.add(fileMenu);
-        menuBar.add(helpMenu);
-
-        this.setJMenuBar(menuBar);
+        //this.setJMenuBar(menuBar);
     }
 
     
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
+
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
 }

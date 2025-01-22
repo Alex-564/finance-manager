@@ -9,7 +9,7 @@ public class CSVParser implements FileReader {
     
     @Override
     public ArrayList<String> readFile(String fileName){
-        ArrayList<String> fileData = new ArrayList<String>();
+        ArrayList<String> fileData = new ArrayList<>();
 
         //attempt to open passed file
         try {
