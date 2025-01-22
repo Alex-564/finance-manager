@@ -1,4 +1,4 @@
-package utils.file;
+package utils.fileReader;
 
 //imports
 import java.util.ArrayList;
