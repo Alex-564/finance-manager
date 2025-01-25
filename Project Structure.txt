@@ -1,0 +1,39 @@
+Project Structure
+
+Functionality:
+1. read csv files containing financial records []
+2. add to csv files containing financial records []
+3. process record data []
+	-cumulate total income / total outgoings []
+	-plot all expenses based on category []
+	-plot all income based on category []
+	-allow to filter based on day, week, month []
+4. generate graphs based on processing []
+5. export graphs and financial data []
+
+
+UI functionality:
+- Main window:
+	Tabs separating main functionality:
+
+	-Home Page: showcases graph information dashboard format
+		-Allows user to cycle different graphs via L/R buttons
+		-Allows user to move to records page
+	
+	-Records Page: allows user to add to csv
+		-Contains restricted selection boxes:
+			-income/expense
+			-amount
+			-category: {food and drink, groceries, utilities, shopping, family and friends, other}
+		-Prompts user to confirm their selection {add / cancel}
+		-Allows users to return to home page.
+
+-Error Window: should pop up and detail where the user made an error (dynamic)
+-Confirmation window: should pop up and allow users to confirm their selections.
+
+
+
+UI style:
+- Home page:
+	- Bordered Layout:
+		-Navigation can be in either Left/right/footer
